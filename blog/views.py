@@ -8,5 +8,9 @@ from blog.models import Post
 
 class HomeView(ListView):
     model = Post
-    template_name = 'home.html'
-    
+    template_name = 'blog/home.html'
+
+class ArticleDetailView(DetailView):
+    model = Post
+    template_name = 'blog/article_details.html'
+     

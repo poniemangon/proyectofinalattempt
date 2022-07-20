@@ -1,10 +1,15 @@
-<h1> futbol rey</h1>
+{% extends 'blog/base.html' %}
 
-<ul>
-{% for post in object_list %}
+{% block content %}
 
-    <li>{{post.title}} - {{post.author}}<br/>
+ <ul>
+ {% for post in object_list %}
+    
+    <li><a href ="{% url 'article-detail' post.pk %}"> {{post.title}} </a> from {{post.author}}<br/>
     {{post.body}}</li>
 
-{% endfor %}
-</ul>
+ {% endfor %}
+ </ul>
+
+
+{% endblock %}
