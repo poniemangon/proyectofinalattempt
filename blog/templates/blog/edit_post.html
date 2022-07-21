@@ -1,6 +1,6 @@
 {% extends 'blog/base.html' %}
 {% block title %}
-Nueva entrada
+Editar post
 
 {% endblock %}
 
@@ -10,7 +10,7 @@ Nueva entrada
 
   {% csrf_token %}
   {{ form.as_p }}
-  <button class="btn btn-success"> Subir </button>
+  <button class="btn btn-success"> Editar </button>
 
 
 
