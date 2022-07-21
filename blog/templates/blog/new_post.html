@@ -5,12 +5,18 @@ Nueva entrada
 {% endblock %}
 
 {% block content %}
-
+{% if user.is_authenticated %}
 <form method="POST">
 
   {% csrf_token %}
   {{ form.as_p }}
-  <button class="btn btn-success"> Subir </button>
+  <button class="btn btn-success"> Crear </button>
+
+{% else %}
+
+<h3>A donde vas picaron</h3>
+{% endif %}
+
 
 
 

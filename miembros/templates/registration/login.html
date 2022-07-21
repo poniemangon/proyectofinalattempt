@@ -1,21 +1,16 @@
 {% extends 'blog/base.html' %}
 {% block title %}
-Editar post
+Login
 
 {% endblock %}
 
 {% block content %}
-{% if user.is_authenticated %}
+
 <form method="POST">
 
   {% csrf_token %}
   {{ form.as_p }}
-  <button class="btn btn-success"> Editar </button>
-
-{% else %}
-
-<h3>A donde vas picaron</h3>
-{% endif %}
+  <button class="btn btn-success"> Login </button>
 
 
 
