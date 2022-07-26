@@ -13,7 +13,7 @@
 
 {% for post in posts %}
 
-  {{ post }}
+  <a href ="{% url 'article-detail' post.pk %}">{{ post }} </a>
   <br/>
   <br/>
 
