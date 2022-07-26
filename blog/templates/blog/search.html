@@ -1,0 +1,29 @@
+{% extends 'blog/base.html' %}
+{% block title %}
+
+
+{% endblock %}
+
+{% block content %}
+<center/>
+{% if searched %}
+
+<h2>Buscaste {{ searched }}</h2>
+<br/>
+
+{% for post in posts %}
+
+  {{ post }}
+  <br/>
+  <br/>
+
+{% endfor %}
+
+{% else %}
+
+<h2>No buscaste nati</h2>
+
+{% endif %}
+
+
+{% endblock %}

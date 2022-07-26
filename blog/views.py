@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from blog.models import Post
 from django.urls import reverse_lazy
+from blog.forms import BusquedaFormulario
+
 
 # Create your views here.
 
@@ -29,3 +31,21 @@ class DeleteArticle(DeleteView):
     model = Post
     template_name = 'blog/delete_post.html'
     success_url = reverse_lazy('home')
+
+# def search_posts(request):
+#     if request.method == "POST":
+#         searched = request.POST['searched']
+         
+
+#         return render(request, 'blog/search.html', {'searched':searched})
+#     else:
+#         return render(request, 'blog/search.html', {})
+
+def search_posts(request):
+    if request.method == "POST":
+        searched = request.POST['searched']
+        posts = Post.objects.filter(title__contains=searched)
+
+        return render(request, 'blog/search.html',{'searched':searched, 'posts':posts})
+    else:
+        return render(request, 'blog/search.html', {})
