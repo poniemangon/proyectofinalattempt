@@ -21,11 +21,13 @@ class NewArticleView(CreateView):
     model = Post
     template_name = 'blog/new_post.html'
     fields = '__all__'
+    success_url = reverse_lazy('home')
 
 class EditArticle(UpdateView):
     model = Post
     template_name = 'blog/edit_post.html'
-    fields = ['title', 'body']
+    fields = ['title', 'body','resume']
+    success_url = reverse_lazy('home')
 
 class DeleteArticle(DeleteView):
     model = Post

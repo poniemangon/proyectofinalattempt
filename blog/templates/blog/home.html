@@ -11,7 +11,7 @@
       <a href="{% url 'delete_post' post.pk %}">Borrar</a><br/>
       
       {% endif %}
-      {{ post.body|slice:":50"}}
+      {{ post.resume|slice:":100"|safe}}
       <br/>
       <br/>
       
