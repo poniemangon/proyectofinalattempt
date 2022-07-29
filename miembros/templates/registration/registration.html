@@ -5,12 +5,16 @@ Registro
 {% endblock %}
 
 {% block content %}
-
+{% if user.is_authenticated %}
+<h2>Ya estas logueado!</h2>
+{% else %}
 <form method="POST">
 
   {% csrf_token %}
   {{ form.as_p }}
   <button class="btn btn-success"> Registrar </button>
+
+  {% endif %}
 
 
 

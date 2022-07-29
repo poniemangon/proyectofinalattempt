@@ -10,8 +10,10 @@
 <h2> {{ post.title }} </h2>
 <h10> por <b>{{ post.author.first_name }} {{ post.author.last_name }}
 </b>
-    {% if user.is_authenticated %}     
+    {% if user.is_authenticated %}
+        {% if user.id == post.author.id %}     
 <a href="{% url 'edit_post' post.pk %}">    <small>Editar</small></a> <a href="{% url 'delete_post' post.pk %}">    <small>Borrar</small></a> </h10>
+{% endif %}
 {% endif %}
 <br/>
 </br>

@@ -6,6 +6,7 @@ Editar post
 
 {% block content %}
 {% if user.is_authenticated %}
+{% if user.id == post.author.id %}
 <center/>
 <form method="POST">
 
@@ -18,6 +19,7 @@ Editar post
 {% else %}
 
 <h3>A donde vas picaron</h3>
+{% endif %}
 {% endif %}
 
 

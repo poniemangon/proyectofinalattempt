@@ -9,7 +9,6 @@ class Post(models.Model):
     title = models.CharField(max_length=255)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     resume = models.CharField(max_length=255, default=None)
-    # body = models.TextField()
     body = RichTextField(blank=True, null=True)
 
     def __str__(self):

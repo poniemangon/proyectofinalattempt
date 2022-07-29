@@ -1,0 +1,21 @@
+{% extends 'blog/base.html' %}
+{% block title %}
+
+
+{% endblock %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+<form method="POST">
+
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-success"> Editar </button>
+{% else %}
+<h2>No bussiness in here bro</h2>
+
+{% endif %}
+
+{% endblock %}
