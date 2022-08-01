@@ -1,0 +1,17 @@
+{% extends 'blog/base.html' %}
+{% block title %}
+Cambiar pass
+
+{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button class="btn btn-success"> Cambiar </button>
+{% else %}
+<h2>gtfo</h2>
+{% endif %}
+
+
+{% endblock %}
