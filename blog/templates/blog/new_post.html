@@ -6,7 +6,7 @@ Nueva entrada
 
 {% block content %}
 {% if user.is_authenticated %}
-<form method="POST">
+<form method="POST" enctype="multipart/form-data">
 
   {% csrf_token %}
   {{ form.media }}

@@ -12,6 +12,8 @@
 
     {% csrf_token %}
     {{ form.as_p }}
+    <a class="nav-link" href="{% url 'nuevo-pass' %}"> Nuevo Password <span class="sr-only"></span></a>
+    <br/>
     <button class="btn btn-success"> Editar </button>
 {% else %}
 <h2>No bussiness in here bro</h2>

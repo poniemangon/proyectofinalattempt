@@ -1,0 +1,18 @@
+{% extends 'blog/base.html' %}
+{% block title %}
+Nuevo avatar
+
+{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<form method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button class="btn btn-success"> Nuevo avatar </button>
+{% else %}
+<h2>gtfo</h2>
+{% endif %}
+
+
+{% endblock %}
