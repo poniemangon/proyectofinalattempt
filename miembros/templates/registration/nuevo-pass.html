@@ -6,9 +6,11 @@ Cambiar pass
 
 {% block content %}
 {% if user.is_authenticated %}
+<form method="POST">
   {% csrf_token %}
   {{ form.as_p }}
   <button class="btn btn-success"> Cambiar </button>
+</form>
 {% else %}
 <h2>gtfo</h2>
 {% endif %}
