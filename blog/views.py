@@ -26,7 +26,7 @@ class NewArticleView(CreateView):
 class EditArticle(UpdateView):
     model = Post
     template_name = 'blog/edit_post.html'
-    fields = ['title', 'body','resume']
+    fields = ['title', 'body','resume', 'imagen']
     success_url = reverse_lazy('home')
 
 class DeleteArticle(DeleteView):
@@ -44,3 +44,5 @@ def search_posts(request):
         return render(request, 'blog/search.html',{'searched':searched, 'posts':posts})
     else:
         return render(request, 'blog/search.html', {})
+
+

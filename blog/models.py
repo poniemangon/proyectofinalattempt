@@ -9,7 +9,8 @@ class Post(models.Model):
     title = models.CharField(max_length=255)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     resume = models.CharField(max_length=255, default=None)
-    body = RichTextField(blank=True, null=True)
+    body = models.TextField(max_length=500)
+    imagen = models.ImageField(upload_to='media/profile', null=True, blank = True)
 
     def __str__(self):
         return self.title + ' from ' + str(self.author)
