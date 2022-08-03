@@ -1,11 +1,14 @@
-from django.shortcuts import render
+from multiprocessing import context
+from django.shortcuts import render, get_object_or_404
 from django.views import generic
+from django.views.generic import DetailView
 from django.contrib.auth.forms import  PasswordChangeForm, UserCreationForm, UserChangeForm
 from django.contrib.auth.views import PasswordChangeView
 from django.urls import reverse_lazy
 from django.contrib.auth.models import User
 
 from miembros.forms import SignUpForm, CambiarUserForm
+from miembros.models import Profile
 
 
 # Create your views here.
@@ -37,9 +40,3 @@ class EdicionUserView(generic.UpdateView):
     def get_object(self):
         return self.request.user
 
-# class UserUpdate(LoginRequiredMixin, UpdateView):
-#     model = Usertemplate_name = 'registration/editar-user.html'
-#     fields = ['username', 'email', 'first_name', 'last_name']
-
-#     def get_success_url(self):
-#         return reverse_lazy('user-detail', kwargs={'pk': self.request.user.id})

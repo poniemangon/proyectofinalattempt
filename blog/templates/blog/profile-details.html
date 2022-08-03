@@ -1,0 +1,15 @@
+{% extends 'blog/base.html' %}
+{% block title %}
+Perfil
+
+{% endblock %}
+{% block content %}
+
+{{ page_user }}
+<img src="{{ profile.imagen.url }}"width=150">
+{{ profile.user.first_name }}
+{{ profile.user.last_name }}
+{{ user.profile.bio }}
+
+
+{% endblock %}

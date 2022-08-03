@@ -2,6 +2,7 @@ from socket import fromshare
 from django.contrib.auth.forms import  UserCreationForm, UserChangeForm, ReadOnlyPasswordHashField
 from django.contrib.auth.models import User
 from django import forms
+from .models import Profile
 
 
 class SignUpForm(UserCreationForm):
@@ -27,5 +28,5 @@ class CambiarUserForm(forms.ModelForm):
         model = User
         fields = ['username','email', 'first_name','last_name']
        
-      
+
 

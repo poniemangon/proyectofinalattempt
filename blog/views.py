@@ -1,12 +1,24 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views.generic import  ListView, DetailView, CreateView, UpdateView, DeleteView
 from blog.models import Post
 from django.urls import reverse_lazy
+from miembros.models import Profile
 
 
 
 # Create your views here.
 
+
+class ProfileView(DetailView):
+    model = Profile
+    template_name = 'blog/profile-details.html'
+
+    def get_context_data(self, *args, **kwargs):
+        users = Profile.objects.all()
+        context = super(ProfileView, self).get_context_data(*args, **kwargs)
+        page_user = get_object_or_404(Profile, id=self.kwargs['pk'])
+        context['users'] = users
+        return context
 
 
 class HomeView(ListView):

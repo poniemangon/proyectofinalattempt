@@ -25,5 +25,16 @@
 <br/><br/><br/>
 
 <a href="{% url 'home' %}" class="btn btn-secondary"> Home </a>
+<br/><br/><br/>
+Post hecho por
+<br/>
+<img src="{{ post.author.profile.imagen.url }}"width=150">
+<b>{{ post.author.profile.user.first_name }}
+    {{ post.author.profile.user.last_name }}
+    <a href="{% url 'profile-details' post.author.profile.id %}"> Perfil del autor</a>
+</b>
+
+{{ post.author.profile.bio }}
+
 
 {% endblock %}
