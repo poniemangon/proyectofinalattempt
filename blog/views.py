@@ -7,7 +7,11 @@ from miembros.models import Profile
 
 
 # Create your views here.
-
+class EditProfileView(UpdateView):
+    model = Profile
+    template_name = 'blog/profile-edit.html'
+    fields = ['bio', 'imagen']
+    success_url = reverse_lazy('home')
 
 class ProfileView(DetailView):
     model = Profile
@@ -38,7 +42,7 @@ class NewArticleView(CreateView):
 class EditArticle(UpdateView):
     model = Post
     template_name = 'blog/edit_post.html'
-    fields = ['title', 'body','resume', 'imagen']
+    fields = ['title', 'body','resume']
     success_url = reverse_lazy('home')
 
 class DeleteArticle(DeleteView):

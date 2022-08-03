@@ -24,9 +24,19 @@
 
           <a class="nav-link" href="{% url 'home'%}">Home <span class="sr-only"></span></a>
           <a class="nav-link" href="{% url 'new_post'%}">Crear entrada <span class="sr-only"></span></a>
-          <a class="nav-link" href="{% url 'profile-details' user.profile.id %}"> Mi perfil <span class="sr-only"></span></a>
           
-          <a class="nav-link" href="{% url 'editar-user' %}"> Editar Usuario <span class="sr-only"></span></a>
+          
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Mi perfil
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="nav-link" href="{% url 'profile-details' user.profile.id %}"> Ver perfil <span class="sr-only"></span></a>
+              <a class="nav-link" href="{% url 'editar-user' %}">   Datos de Usuario <span class="sr-only"></span></a>
+              <a class="nav-link" href="{% url 'profile-edit' user.profile.id %}"> Editar perfil <span class="sr-only"></span></a>
+            </div>
+          </div>
+          
           <a class="nav-link" href="{% url 'logout' %}"> Log-out <span class="sr-only"></span></a>
           {% else %}
           

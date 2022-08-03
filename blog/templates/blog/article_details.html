@@ -15,10 +15,7 @@
 <a href="{% url 'edit_post' post.pk %}">    <small>Editar</small></a> <a href="{% url 'delete_post' post.pk %}">    <small>Borrar</small></a> </h10>
 {% endif %}
 {% endif %}
-<br/>
-</br>
-<img src="{{ post.imagen.url }}">
-<br/>
+
 {{ post.body|safe }}
 
 
@@ -29,9 +26,9 @@
 Post hecho por
 <br/>
 <img src="{{ post.author.profile.imagen.url }}"width=150">
-<b>{{ post.author.profile.user.first_name }}
-    {{ post.author.profile.user.last_name }}
-    <a href="{% url 'profile-details' post.author.profile.id %}"> Perfil del autor</a>
+<b>
+    <a href="{% url 'profile-details' post.author.profile.id %}"> {{ post.author.profile.user.first_name }}
+        {{ post.author.profile.user.last_name }}</a>
 </b>
 
 {{ post.author.profile.bio }}
