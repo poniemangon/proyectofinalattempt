@@ -6,13 +6,17 @@ Nueva entrada
 
 {% block content %}
 {% if user.is_authenticated %}
+{% if user.profile %}
 <form method="POST" enctype="multipart/form-data">
 
   {% csrf_token %}
   {{ form.media }}
   {{ form.as_p }}
   <button class="btn btn-success"> Crear </button>
-
+{% else %}
+Para crear una entrada nueva, tenes que tener un perfil hecho.
+<a href="{% url 'new-profile' %}"> Crear perfil </a>
+{% endif %}
 {% else %}
 
 <h3>A donde vas picaron</h3>

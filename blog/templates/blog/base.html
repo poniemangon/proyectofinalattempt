@@ -30,10 +30,15 @@
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Mi perfil
             </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu">
+              {% if user.profile.id %}
               <a class="nav-link" href="{% url 'profile-details' user.profile.id %}"> Ver perfil <span class="sr-only"></span></a>
-              <a class="nav-link" href="{% url 'editar-user' %}">   Datos de Usuario <span class="sr-only"></span></a>
               <a class="nav-link" href="{% url 'profile-edit' user.profile.id %}"> Editar perfil <span class="sr-only"></span></a>
+              {% else %}
+              <a class="nav-link" href="{% url 'new-profile' %}"> Crear perfil <span class="sr-only"></span></a>
+              {% endif %}
+              <a class="nav-link" href="{% url 'editar-user' %}">   Editar datos de Usuario <span class="sr-only"></span></a>
+              
             </div>
           </div>
           

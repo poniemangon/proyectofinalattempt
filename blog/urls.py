@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import  EditProfileView , ProfileView, search_posts, DeleteArticle, HomeView, ArticleDetailView, NewArticleView, EditArticle
+from .views import  CreateProfileView, EditProfileView , ProfileView, search_posts, DeleteArticle, HomeView, ArticleDetailView, NewArticleView, EditArticle
 
 urlpatterns = [
     path('', HomeView.as_view(), name="home"),
@@ -10,6 +10,7 @@ urlpatterns = [
     path('search', search_posts, name='search'),
     path('profile/<int:pk>', ProfileView.as_view(), name="profile-details"),
     path('profile_edit/<int:pk>', EditProfileView.as_view(), name="profile-edit"),
+    path('new-profile', CreateProfileView.as_view(), name='new-profile'),
     
     
     

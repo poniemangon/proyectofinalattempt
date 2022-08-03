@@ -3,10 +3,21 @@ from django.views.generic import  ListView, DetailView, CreateView, UpdateView, 
 from blog.models import Post
 from django.urls import reverse_lazy
 from miembros.models import Profile
-
+from miembros.forms import NewProfileForm
 
 
 # Create your views here.
+
+class CreateProfileView(CreateView):
+    model = Profile
+    form_class = NewProfileForm
+    template_name = 'blog/create-profile.html'
+    success_url = reverse_lazy('home')
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
 class EditProfileView(UpdateView):
     model = Profile
     template_name = 'blog/profile-edit.html'

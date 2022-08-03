@@ -1,0 +1,26 @@
+{% extends 'blog/base.html' %}
+{% block title %}
+
+
+{% endblock %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+{% if user.profile %}
+Perfil ya creado
+{% else %}
+<form method="POST" enctype="multipart/form-data">
+
+    {% csrf_token %}
+    {{ form.as_p }}
+    
+    <br/>
+    <button class="btn btn-success"> Crear </button>
+{% endif %}
+{% else %}
+<h2>No bussiness in here bro</h2>
+
+{% endif %}
+
+{% endblock %}

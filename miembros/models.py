@@ -14,3 +14,5 @@ class Profile(models.Model):
 
     def __str__(self):
         return str(self.user)
+    def get_aboslute_url(self):
+        return reverse('home')

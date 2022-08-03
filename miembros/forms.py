@@ -5,6 +5,16 @@ from django import forms
 from .models import Profile
 
 
+class NewProfileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ('bio', 'imagen')
+        widgets = {
+            ''
+        }
+
+
+
 class SignUpForm(UserCreationForm):
     username = forms.CharField()
     email = forms.EmailField()
