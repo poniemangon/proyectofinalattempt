@@ -7,12 +7,23 @@ Nueva entrada
 {% block content %}
 {% if user.is_authenticated %}
 {% if user.profile %}
+
+<div class="form-group">
 <form method="POST" enctype="multipart/form-data">
 
   {% csrf_token %}
   {{ form.media }}
   {{ form.as_p }}
+
   <button class="btn btn-success"> Crear </button>
+</div>
+<script>
+  var name = "{{ user.id }}";
+  document.getElementById("elder").value 
+      = name;
+
+
+</script>
 {% else %}
 Para crear una entrada nueva, tenes que tener un perfil hecho.
 <a href="{% url 'new-profile' %}"> Crear perfil </a>
