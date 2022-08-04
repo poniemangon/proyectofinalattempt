@@ -1,9 +1,11 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import  ListView, DetailView, CreateView, UpdateView, DeleteView
+from blog.forms import  NewPostForm
 from blog.models import Post
 from django.urls import reverse_lazy
 from miembros.models import Profile
 from miembros.forms import NewProfileForm
+from .forms import EditProfileForm
 
 
 # Create your views here.
@@ -21,7 +23,8 @@ class CreateProfileView(CreateView):
 class EditProfileView(UpdateView):
     model = Profile
     template_name = 'blog/profile-edit.html'
-    fields = ['bio', 'imagen']
+    
+    form_class = EditProfileForm
     success_url = reverse_lazy('home')
 
 class ProfileView(DetailView):
@@ -46,9 +49,10 @@ class ArticleDetailView(DetailView):
      
 class NewArticleView(CreateView):
     model = Post
+    form_class = NewPostForm
     template_name = 'blog/new_post.html'
-    fields = '__all__'
     success_url = reverse_lazy('home')
+
 
 class EditArticle(UpdateView):
     model = Post

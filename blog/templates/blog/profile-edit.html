@@ -7,12 +7,19 @@
 {% block content %}
 
 {% if user.is_authenticated %}
+<h2> Edicion de perfil de 
+<b>{{ profile.user.first_name }}
+{{ profile.user.last_name }}</b>
+</h2>
 
 <form method="POST" enctype="multipart/form-data">
 
     {% csrf_token %}
     {{ form.as_p }}
     
+    <img src="{{ profile.imagen.url }}"width=150">
+    Foto de Perfil actual    
+    <br/>
     <br/>
     <button class="btn btn-success"> Editar </button>
 {% else %}

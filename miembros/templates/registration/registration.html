@@ -8,6 +8,11 @@ Registro
 {% if user.is_authenticated %}
 <h2>Ya estas logueado!</h2>
 {% else %}
+
+<br/>
+<h2> Registrarse </h2>
+<br/>
+
 <form method="POST">
 
   {% csrf_token %}

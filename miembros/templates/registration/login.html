@@ -8,11 +8,24 @@ Login
 {% if user.is_authenticated %}
 <h2>Ya estas logueado!</h2>
 {% else %}
-<form method="POST">
+<br/>
+<h2>Loguearse </h2>
+<br/>
+  
+<div class="form-group">
+  <form method="POST">
+    {% csrf_token %}
+<div class="form-group">
+  <input type="text" class="form-control" name="username" placeholder="Username">
+</div>
 
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button class="btn btn-success"> Login </button>
+<div class="form-group">
+  <input type="password" class="form-control" name="password" placeholder="Password">
+</div>
+<button type="success" class="btn btn-primary">Login</button>
+
+
+</div>
 {% endif %}
 
 
