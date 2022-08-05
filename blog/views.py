@@ -62,7 +62,7 @@ class NewArticleView(CreateView):
 class EditArticle(UpdateView):
     model = Post
     template_name = 'blog/edit_post.html'
-    fields = ['title', 'body','resume']
+    fields = ['title', 'body','imagen','resume']
     success_url = reverse_lazy('home')
 
 class DeleteArticle(DeleteView):

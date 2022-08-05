@@ -9,7 +9,7 @@ from miembros.models import Profile
 class NewPostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ('title','resume','author','body' )
+        fields = ('title','resume','author','imagen','body' )
         widgets = {
             'title': forms.TextInput(attrs={'class':'form-control'}),
             'resume': forms.TextInput(attrs={'class':'form-control'}),
