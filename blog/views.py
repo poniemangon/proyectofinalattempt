@@ -53,10 +53,10 @@ class NewArticleView(CreateView):
     template_name = 'blog/new_post.html'
     success_url = reverse_lazy('home')
 
-    # def post(self, request, **kwargs):
-    #     request.POST = request.POST.copy()
-    #     request.POST['author'] = request.user.id
-    #     return super(NewArticleView, self).post(request, **kwargs)
+    def post(self, request, **kwargs):
+        request.POST = request.POST.copy()
+        request.POST['author'] = request.user.id
+        return super(NewArticleView, self).post(request, **kwargs)
 
 
 class EditArticle(UpdateView):

@@ -7,7 +7,7 @@ from django.contrib.auth.views import PasswordChangeView
 from django.urls import reverse_lazy
 from django.contrib.auth.models import User
 
-from miembros.forms import SignUpForm, CambiarUserForm
+from miembros.forms import SignUpForm, CambiarUserForm, PasswordChange
 from miembros.models import Profile
 
 
@@ -18,7 +18,7 @@ from miembros.models import Profile
 
 
 class NuevaPassView(PasswordChangeView):
-    form_class = PasswordChangeForm
+    form_class = PasswordChange
     success_url = reverse_lazy('home')
 
 
