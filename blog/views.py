@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import  ListView, DetailView, CreateView, UpdateView, DeleteView
 from blog.forms import  NewPostForm
@@ -9,6 +10,8 @@ from .forms import EditProfileForm
 
 
 # Create your views here.
+def index(request):
+    return render(request, 'blog/index.html', {})
 
 class CreateProfileView(CreateView):
     model = Profile
@@ -42,6 +45,10 @@ class ProfileView(DetailView):
 class HomeView(ListView):
     model = Post
     template_name = 'blog/home.html'
+
+class MyPosts(ListView):
+    model = Post
+    template_name = 'blog/mis-posts.html'
 
 class ArticleDetailView(DetailView):
     model = Post
