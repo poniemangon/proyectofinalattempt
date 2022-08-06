@@ -4,9 +4,11 @@
 
 {% endblock %}
 
+
 {% block content %}
 
 {% if user.is_authenticated %}
+{% if user.id == profile.user.id %}
 <h2> Edicion de perfil de 
 <b>{{ profile.user.first_name }}
 {{ profile.user.last_name }}</b>
@@ -26,5 +28,5 @@
 <h2>No bussiness in here bro</h2>
 
 {% endif %}
-
+{% endif %}
 {% endblock %}

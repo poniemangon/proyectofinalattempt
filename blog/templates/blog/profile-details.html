@@ -4,8 +4,10 @@ Perfil de
 
     <b>{{ profile.user.first_name }}
     {{ profile.user.last_name }}</b>
-   
-
+{% if user.id == profile.user.id %}  
+<a href ="{% url 'profile-edit' user.profile.id %}">Editar</a>
+{% else %}
+{% endif %}
 {% endblock %}
 {% block content %}
 
