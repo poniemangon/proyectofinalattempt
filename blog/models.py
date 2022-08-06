@@ -9,7 +9,7 @@ class Post(models.Model):
     title = models.CharField(max_length=255)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     resume = models.CharField(max_length=255, default=None)
-    imagen = models.ImageField(upload_to='media/postimages', null=True, blank = True)
+    imagen = models.ImageField(upload_to='media/postimages', null=True, blank = True )
     body = RichTextField(blank=True, null=True)
     post_date = models.DateField(auto_now_add=True, )
 
