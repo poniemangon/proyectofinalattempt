@@ -1,13 +1,6 @@
 {% extends 'blog/base.html' %}
 
 {% block title %}
-{{ post.title }}
-{% endblock %}
-
-{% block content %}
-<center/>
-
-<h2> {{ post.title }} </h2>
 <h10>  <small> por <b>{{ post.author.first_name }} {{ post.author.last_name }} 
 </b>{{ post.post_date }}</small>
 
@@ -16,10 +9,17 @@
 <a href="{% url 'edit_post' post.pk %}">    <small>Editar</small></a> <a href="{% url 'delete_post' post.pk %}">    <small>Borrar</small></a> </h10>
 {% endif %}
 {% endif %}
+{% endblock %}
+
+{% block content %}
+<center/>
+
+<h2> {{ post.title }} </h2>
+
 <br/>
 <img src="{{ post.imagen.url }}"width=400">
 <br/>
-
+<br/>
 
 <div class="card">
   
