@@ -6,7 +6,7 @@ from blog.models import Post
 from django.urls import reverse_lazy
 from miembros.models import Profile
 from miembros.forms import NewProfileForm
-from .forms import EditProfileForm
+from .forms import EditPostForm, EditProfileForm
 
 
 # Create your views here.
@@ -72,7 +72,7 @@ class NewArticleView(CreateView):
 class EditArticle(UpdateView):
     model = Post
     template_name = 'blog/edit_post.html'
-    fields = ['title', 'body','imagen','resume']
+    form_class = EditPostForm
     success_url = reverse_lazy('home')
 
 class DeleteArticle(DeleteView):

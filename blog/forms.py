@@ -21,6 +21,20 @@ class NewPostForm(forms.ModelForm):
             'author': forms.TextInput(attrs={'class':'form-control', 'value':'', 'id':'elder', 'type':'hidden'}),
             'body': forms.Textarea(attrs={'class':'form-control'}),
         }
+class EditPostForm(forms.ModelForm):
+    
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['imagen'].required = True
+    
+    class Meta:
+        model = Post
+        fields = ('title','resume','imagen','body' )
+        widgets = {
+            'title': forms.TextInput(attrs={'class':'form-control'}),
+            'resume': forms.TextInput(attrs={'class':'form-control'}),
+            'body': forms.Textarea(attrs={'class':'form-control'}),
+        }
 
 class EditProfileForm(forms.ModelForm):
 
