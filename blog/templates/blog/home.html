@@ -1,22 +1,24 @@
 {% extends 'blog/base.html' %}
+{% block title %}
 
+Blog
+
+{% endblock %}
 {% block content %}
 
  <ul>
  {% for post in object_list %}
-    
-    <li><a href ="{% url 'article-detail' post.pk %}"> {{post.title}} </a> from <b>{{post.author.first_name}} {{post.author.last_name}}</b><br/><img src="{{ post.imagen.url }}"width=150"> - 
-      {% if user.is_authenticated %} 
-        {% if user.id == post.author.id %}   
-          <a href="{% url 'edit_post' post.pk %}">Editar</a> 
-          <a href="{% url 'delete_post' post.pk %}">Borrar</a><br/>
-        {% endif %}
-      {% endif %}
-      {{ post.resume|slice:":100"|safe}}
-      <br/>
-      <br/>
-      
-    </li>
+ <li>
+ <div class="card" style="width: 18rem;">
+
+  <img src="{{ post.imagen.url }}" class="card-img-top" width="150" height="150">
+
+  
+  <div class="card-body">
+    <p class="card-text"><a href ="{% url 'article-detail' post.pk %}"> {{post.title}} </a> from <b>{{post.author.first_name}} {{post.author.last_name}}</b></p>
+  </div>
+  
+</li>
    
  {% endfor %}
  </ul>

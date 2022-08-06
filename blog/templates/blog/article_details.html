@@ -17,9 +17,17 @@
 {% endif %}
 {% endif %}
 <br/>
-<img src="{{ post.imagen.url }}"width=150">
+<img src="{{ post.imagen.url }}"width=400">
 <br/>
-{{ post.body|safe }}
+
+
+<div class="card">
+  
+  <div class="card-body">
+    {{ post.body|safe }}
+  </div>
+</div>
+
 
 
 
@@ -33,12 +41,16 @@
 Post hecho por
 </div>
 <footer class="footer mt-auto py-3 bg-light">
-    
-<img src="{{ post.author.profile.imagen.url }}" width="100" height="100">
-{{ post.author.profile.bio }}
+
+  <img src="{{ post.author.profile.imagen.url }}"  class="rounded" width="120" height="120">   
+<!-- <img src="{{ post.author.profile.imagen.url }}" width="100" height="100"> -->
+<p>
 <b>
-    <a href="{% url 'profile-details' post.author.profile.id %}">  <br/>{{ post.author.profile.user.first_name }} {{ post.author.profile.user.last_name }}</a>
+  <a href="{% url 'profile-details' post.author.profile.id %}">  <br/>{{ post.author.profile.user.first_name }} {{ post.author.profile.user.last_name }}</a>
 </b>
+</p>
+{{ post.author.profile.bio }}
+
 
 
  <div class="container">

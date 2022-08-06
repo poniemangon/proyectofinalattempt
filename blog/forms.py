@@ -7,6 +7,11 @@ from miembros.models import Profile
 
 
 class NewPostForm(forms.ModelForm):
+    
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['imagen'].required = True
+    
     class Meta:
         model = Post
         fields = ('title','resume','author','imagen','body' )

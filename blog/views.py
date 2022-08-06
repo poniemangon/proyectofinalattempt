@@ -41,10 +41,13 @@ class ProfileView(DetailView):
         context['users'] = users
         return context
 
+def about(request):
+    return render(request, "blog/about.html", {})
 
 class HomeView(ListView):
     model = Post
     template_name = 'blog/home.html'
+    
 
 class MyPosts(ListView):
     model = Post

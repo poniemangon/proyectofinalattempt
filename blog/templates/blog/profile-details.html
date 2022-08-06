@@ -6,9 +6,12 @@ Perfil
 {% block content %}
 
 {{ page_user }}
-<img src="{{ profile.imagen.url }}"width=150">
+
+<img src="{{ profile.imagen.url }}"  class="rounded" width="120" height="120"> 
+<p>
 <b>{{ profile.user.first_name }}
 {{ profile.user.last_name }}</b>
+</p>
 {{ profile.bio }}
 
 

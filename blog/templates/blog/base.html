@@ -7,7 +7,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Dashboard - SB Admin</title>
+        <title>
+
+        </title>
         <link href="{% static 'vendor/fontawesome-free/css/all.min.css'%}" rel="stylesheet" />
         <link href="{% static 'css/styles.css'%}" rel="stylesheet" />
         <script src="{% static 'vendor/datatables/dataTables.bootstrap4.css' %}" crossorigin="anonymous"></script>
@@ -16,6 +18,7 @@
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
             <a class="navbar-brand ps-3" href="{% url 'home'%}">Mi blog generico!</a>
+            
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
@@ -57,6 +60,10 @@
                             <a class="nav-link" href="{% url 'home'%}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Home
+                            </a>
+                            <a class="nav-link" href="{% url 'about'%}">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                About
                             </a>
                             {% if user.is_authenticated %}
                             <div class="sb-sidenav-menu-heading">Mi usuario</div>
@@ -137,9 +144,11 @@
                             </div>
                         </div>
                         <div class="card mb-4">
+                           
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                
+                                {% block title %}
+                                {% endblock %}
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
