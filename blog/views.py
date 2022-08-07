@@ -10,8 +10,14 @@ from .forms import EditPostForm, EditProfileForm
 
 
 # Create your views here.
-def index(request):
-    return render(request, 'blog/index.html', {})
+
+def page_not_found_view(request, exception):
+   
+    # we add the path to the the 404.html file
+    # here. The name of our HTML file is 404.html
+    return render(request, '404.html')
+
+
 
 class CreateProfileView(CreateView):
     model = Profile

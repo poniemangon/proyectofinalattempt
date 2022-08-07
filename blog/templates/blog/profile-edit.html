@@ -1,6 +1,11 @@
 {% extends 'blog/base.html' %}
 {% block title %}
 
+ Edicion de perfil 
+
+    
+
+
 
 {% endblock %}
 
@@ -8,11 +13,10 @@
 {% block content %}
 
 {% if user.is_authenticated %}
+
 {% if user.id == profile.user.id %}
-<h2> Edicion de perfil de 
 <b>{{ profile.user.first_name }}
-{{ profile.user.last_name }}</b>
-</h2>
+    {{ profile.user.last_name }}</b>
 
 <form method="POST" enctype="multipart/form-data">
 
@@ -24,8 +28,12 @@
     <br/>
     <br/>
     <button class="btn btn-success"> Editar </button>
+
 {% else %}
-<h2>No bussiness in here bro</h2>
+
+<h3> Acceso denegado </h3>
+
+
 
 {% endif %}
 {% endif %}
