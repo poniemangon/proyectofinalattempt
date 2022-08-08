@@ -6,6 +6,7 @@ Pagina de inicio
 {% endblock %}
 {% block content %}
 
+
  <ul>
  {% for post in object_list %}
  <li>
@@ -22,6 +23,24 @@ Pagina de inicio
    
  {% endfor %}
  </ul>
+ <nav>
+  {% if is_paginated %}
+      <ul class="pagination">
+          {% if page_obj.has_previous %}
+              <li><button type="button" class="btn btn-outline-dark btn-rounded" data-mdb-ripple-color="dark"><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></button></li>
+          {% endif %}
 
+          {% for i in paginator.page_range %}
+              <li {% if page_obj.number == i %} class="active" {% endif %}>
+                  <li><button type="button" class="btn btn-outline-dark btn-rounded" data-mdb-ripple-color="dark"><a href="?page={{i}}">{{ i }}</a></button></li>
+              </li>
+          {% endfor %}
+
+          {% if page_obj.has_next %}
+              <li><button type="button" class="btn btn-outline-dark btn-rounded" data-mdb-ripple-color="dark"><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></button></li>
+          {% endif %}
+      </ul>
+  {% endif %}
+</nav>
 
 {% endblock %}

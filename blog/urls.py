@@ -13,6 +13,7 @@ urlpatterns = [
     path('new-profile', CreateProfileView.as_view(), name='new-profile'),
     path('myposts/', MyPosts.as_view(), name="myposts"),
     path('about/', about, name='about'),
+   
     
     
     

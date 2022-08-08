@@ -4,18 +4,21 @@ from django.views.generic import  ListView, DetailView, CreateView, UpdateView, 
 from blog.forms import  NewPostForm
 from blog.models import Post
 from django.urls import reverse_lazy
-from miembros.models import Profile
+from miembros.models import Profile, User
 from miembros.forms import NewProfileForm
 from .forms import EditPostForm, EditProfileForm
+from django.core.paginator import Paginator
 
 
 # Create your views here.
 
+
+
+
 def page_not_found_view(request, exception):
    
-    # we add the path to the the 404.html file
-    # here. The name of our HTML file is 404.html
-    return render(request, '404.html')
+
+    return render(request, 'blog/404.html')
 
 
 
@@ -51,12 +54,14 @@ def about(request):
     return render(request, "blog/about.html", {})
 
 class HomeView(ListView):
+    paginate_by = 4
     model = Post
     template_name = 'blog/home.html'
     
 
 class MyPosts(ListView):
     model = Post
+    paginate_by = 4
     template_name = 'blog/mis-posts.html'
 
 class ArticleDetailView(DetailView):

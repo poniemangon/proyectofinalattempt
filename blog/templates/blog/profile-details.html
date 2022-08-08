@@ -18,4 +18,20 @@ Perfil de
 {{ profile.bio }}
 
 
+<ul>
+    {% for post in object_list %}
+    {% if post.author.user.id == user.id %}
+    <li>
+      <div class="card" style="width: 18rem;">
+       <img src="{{ post.imagen.url }}" class="card-img-top" width="150" height="150">
+       <div class="card-body">
+         <p class="card-text"><a href ="{% url 'article-detail' post.pk %}"> {{post.title}} </a> from <b>{{post.author.first_name}} {{post.author.last_name}}</b></p>
+       </div>
+     </li>
+       </li>
+      {% endif %}
+    {% endfor %}
+</ul>
+
+
 {% endblock %}
