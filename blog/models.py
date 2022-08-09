@@ -12,6 +12,7 @@ class Post(models.Model):
     imagen = models.ImageField(upload_to='media/postimages', null=True, blank = True )
     body = RichTextField(blank=True, null=True)
     post_date = models.DateField(auto_now_add=True, )
+    post_time = models.TimeField(auto_now_add=True, )
 
 
     def __str__(self):

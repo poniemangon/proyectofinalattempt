@@ -57,12 +57,17 @@ class HomeView(ListView):
     paginate_by = 4
     model = Post
     template_name = 'blog/home.html'
+    ordering = ['-post_date','-post_time']
+
     
 
 class MyPosts(ListView):
     model = Post
-    paginate_by = 4
+    paginate_by = 3
     template_name = 'blog/mis-posts.html'
+    ordering = ['-post_date','-post_time']
+       
+
 
 class ArticleDetailView(DetailView):
     model = Post
